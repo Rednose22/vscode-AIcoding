@@ -1,0 +1,73 @@
+{
+  "name": "posit-workbench-build-tab",
+  "displayName": "Posit Workbench Build Tab",
+  "description": "Mimics the build tab in Posit Workbench with buttons for unit test, devtools test, devtools check, and clean & install",
+  "version": "0.0.1",
+  "publisher": "local",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "positBuildContainer",
+          "title": "Posit Build",
+          "icon": "resources/build-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "positBuildContainer": [
+        {
+          "id": "positBuildTab",
+          "name": "Build Tasks",
+          "icon": "resources/build-icon.svg"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "positBuild.unitTest",
+        "title": "Run Current Test File",
+        "icon": "$(beaker)"
+      },
+      {
+        "command": "positBuild.devtoolsTest",
+        "title": "Run Devtools Test",
+        "icon": "$(check-all)"
+      },
+      {
+        "command": "positBuild.devtoolsCheck",
+        "title": "Run Devtools Check",
+        "icon": "$(checklist)"
+      },
+      {
+        "command": "positBuild.cleanInstall",
+        "title": "Clean & Install",
+        "icon": "$(refresh)"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "18.x",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "eslint": "^8.54.0",
+    "typescript": "^5.3.2",
+    "@vscode/test-electron": "^2.3.8"
+  }
+}

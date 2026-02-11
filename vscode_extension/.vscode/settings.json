@@ -1,0 +1,7 @@
+{
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	"editor.insertSpaces": false,
+	"editor.detectIndentation": false,
+	"typescript.tsc.autoDetect": "off"
+}
